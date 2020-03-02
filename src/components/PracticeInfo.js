@@ -3,25 +3,25 @@ import { useState, useEffect } from 'react'
 
 const PracticeInfo = () => {
 
-const [time, set_time] = useState('')
-const [openstatus, set_openstatus] = useState('')
+  const [time, set_time] = useState('')
+  const [openstatus, set_openstatus] = useState('')
 
-const timer = () => {
-  const date = new Date()
-  const currentTime = date.getHours() + "." + date.getMinutes()
-  set_time(currentTime)
-}
-
-useEffect(() => {
-  const checkTime = () => {
-
-    timer()
-    // Look into addding it to auto update later
-    time < 12.30 || time > 16.59 ? set_openstatus('closed')
-                                 : set_openstatus('open') 
+  const timer = () => {
+    const date = new Date()
+    const currentTime = date.getHours() + "." + date.getMinutes()
+    set_time(currentTime)
   }
-    checkTime()
-  }, [time])
+
+  useEffect(() => {
+    const checkTime = () => {
+
+      timer()
+      // Look into addding it to auto update later
+      time < 12.30 || time > 16.59 ? set_openstatus('closed')
+                                  : set_openstatus('open') 
+    }
+      checkTime()
+    }, [time])
 
   return (
     <div>

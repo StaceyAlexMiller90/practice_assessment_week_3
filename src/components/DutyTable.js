@@ -1,20 +1,22 @@
 import React from 'react'
 
-const DutyTable = () => {
+const DutyTable = (props) => {
 
+  const doctors = props.doctors
 
   return (
-    <div>
+    <div> 
         <table>
           <tr>
             <th>Doctor</th>
             <th>Availability</th>
           </tr>
-          {/* Map over doctors to return a tr for each */}
-          <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-          </tr>
+          {doctors.map(doc => {
+            return <tr>
+                    <td>{doc.doctor}</td>
+                    <td>{doc.onDuty ? 'On Duty' : 'Off Duty'}</td>
+                   </tr>
+          })}
         </table>
     </div>
   )
