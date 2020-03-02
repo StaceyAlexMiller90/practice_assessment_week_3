@@ -9,12 +9,16 @@ const [openstatus, set_openstatus] = useState('')
   useEffect(() => {
     const checkTime = async () => {
 
-      const date = new Date()
-      const currentTime = date.getHours() + "." + date.getMinutes()
-      set_time(currentTime)
+      const timer = () => {
+        const date = new Date()
+        const currentTime = date.getHours() + "." + date.getMinutes()
+        set_time(currentTime)
+      }
+
+      setInterval(timer, 1000)
 
       time < 8.00 || time > 16.59 ? set_openstatus('closed')
-                                   : set_openstatus('open') 
+                                  : set_openstatus('open') 
       }
         checkTime()
      }, [time])
