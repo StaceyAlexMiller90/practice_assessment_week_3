@@ -1,10 +1,13 @@
 import React from 'react'
 import PracticeInfo from '../components/PracticeInfo'
+import DutyTable from '../components/DutyTable'
 
 const DoctorSchedule = () => {
+
   return (
     <div>
-        This is the doctorschedule
+        <h1>Who is on duty?</h1>
+        {/* <DutyTable /> */}
         <PracticeInfo />
     </div>
   )
