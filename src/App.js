@@ -12,7 +12,6 @@ import axios from 'axios'
 function App() {
 
   const [patients, set_patients] = useState('')
-  // const [patientStatus, set_patientStatus] = useState('')
 
   useEffect(() => {
     const getPatients = async () => {
@@ -21,6 +20,21 @@ function App() {
       set_patients(response.data)
     }
       getPatients()
+    }, [])
+
+    
+  const [docStatus, set_docstatus] = useState('')
+  const [doctors, set_doctors] = useState([])
+
+  useEffect(() => {
+    const checkDoctors = async () => {
+      set_docstatus('Loading...')
+      const response = await axios.get(
+        'https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors') 
+      set_docstatus('')  
+      set_doctors(response.data)
+    }
+      checkDoctors()
     }, [])
 
     // const submit = (firstName, lastName, email, phone, gender, dob) => {
@@ -43,9 +57,20 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route path="/patientdatabase" component={PatientDatabase}/>
+        <Route path="/patientdatabase" 
+               render={(props) => 
+               <PatientDatabase {...props} 
+               patients={patients}
+               doctors={doctors}/>}
+        />
         <Route path="/patientsignup" component={PatientSignUp}/>
-        <Route path="/doctorschedule" component={DoctorSchedule} />
+
+        <Route path="/doctorschedule" 
+               render={(props) => 
+               <DoctorSchedule {...props} 
+               doctors={doctors}
+               status={docStatus}/>}
+        />
         <Route path="/" component={HomePage} />
       </Switch>
     </div>

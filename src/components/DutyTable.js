@@ -7,16 +7,20 @@ const DutyTable = (props) => {
   return (
     <div> 
         <table>
+          <thead>
           <tr>
             <th>Doctor</th>
             <th>Availability</th>
           </tr>
+          </thead>
+          <tbody>
           {doctors.map(doc => {
             return <tr>
                     <td>{doc.doctor}</td>
                     <td>{doc.onDuty ? 'On Duty' : 'Off Duty'}</td>
                    </tr>
           })}
+          </tbody>
         </table>
     </div>
   )

@@ -16,8 +16,7 @@ const PracticeInfo = () => {
     const checkTime = () => {
 
       timer()
-      // Look into addding it to auto update later
-      time < 12.30 || time > 16.59 ? set_openstatus('closed')
+      time < 8.00 || time > 16.59 ? set_openstatus('closed')
                                   : set_openstatus('open') 
     }
       checkTime()
