@@ -16,8 +16,12 @@ const PracticeInfo = () => {
     const checkTime = () => {
 
       timer()
+      
       time < 8.00 || time > 16.59 ? set_openstatus('closed')
-                                  : set_openstatus('open') 
+                                  : set_openstatus('open')
+      
+      //Not the best solution as it runs twice very minute but it works!                            
+      setInterval(timer, 60 * 1000)                            
     }
       checkTime()
     }, [time])
