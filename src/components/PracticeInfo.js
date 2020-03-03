@@ -10,18 +10,16 @@ const PracticeInfo = () => {
     const date = new Date()
     const currentTime = date.getHours() + "." + date.getMinutes()
     set_time(currentTime)
+    // Not working the best! :)
+    // setInterval(timer, 60 * 1000) 
   }
 
   useEffect(() => {
     const checkTime = () => {
 
       timer()
-      
       time < 8.00 || time > 16.59 ? set_openstatus('closed')
-                                  : set_openstatus('open')
-      
-      //Not the best solution as it runs twice very minute but it works!                            
-      setInterval(timer, 60 * 1000)                            
+                                  : set_openstatus('open')                                                      
     }
       checkTime()
     }, [time])

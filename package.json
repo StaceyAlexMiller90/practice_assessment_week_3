@@ -10,7 +10,14 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "tachyons-display": "^5.0.5",
+    "tachyons-font-weight": "^5.0.5",
+    "tachyons-hovers": "^2.5.2",
+    "tachyons-links": "^3.0.11",
+    "tachyons-skins": "^4.1.1",
+    "tachyons-spacing": "^6.0.5",
+    "tachyons-type-scale": "^6.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

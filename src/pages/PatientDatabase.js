@@ -25,6 +25,7 @@ const PatientDatabase = (props) => {
 
   return (
     <div>
+        <h1>Patient Database</h1>
         <p>Doctor: 
           <select id="doctor" 
                   name="doctor"
@@ -34,7 +35,7 @@ const PatientDatabase = (props) => {
             {doctors.map(doc => {
               return <option key={doc.id}value={doc.id}>{doc.doctor}</option>
             })}
-            <option value="all">All patients</option>        
+            <option value="all">All</option>        
           </select> <br></br>
         </p>
         {patientsForDoc.map(patient => 
