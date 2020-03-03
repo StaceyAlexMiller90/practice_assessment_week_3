@@ -9,13 +9,14 @@ const SignUpForm = (props) => {
   const [gender, set_gender] = useState('')
   const [dob, set_dob] = useState('')
 
-  const submitDetails = () => {
-    props.log(firstName, lastName, email, phone, gender, dob)    
+  const submitDetails = (event) => {
+    event.preventDefault()
+    props.log(firstName, lastName, email, phone, gender, dob)   
   }
 
   return (
     <div>
-      <form>
+      <form onSubmit={submitDetails}>
         <p>First Name: 
         <input name="firstName" 
                type="text"
@@ -62,8 +63,8 @@ const SignUpForm = (props) => {
               onChange={e => set_dob(e.target.value)}
               ></input><br></br>
         </p>
+        <input type='submit' />
       </form>
-      <button onClick={submitDetails}>Submit</button>
     </div>
   )
 }

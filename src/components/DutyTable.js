@@ -15,7 +15,7 @@ const DutyTable = (props) => {
           </thead>
           <tbody>
           {doctors.map(doc => {
-            return <tr>
+            return <tr key={doc.id}>
                     <td>{doc.doctor}</td>
                     <td>{doc.onDuty ? 'On Duty' : 'Off Duty'}</td>
                    </tr>
